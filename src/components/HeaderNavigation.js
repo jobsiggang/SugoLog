@@ -8,11 +8,9 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// props에 route를 포함하도록 정의
 export const MainHeader = ({ navigation, route }) => {
   const [user, setUser] = useState(null);
 
-  // 사용자 정보 로드
   useEffect(() => {
     const loadUser = async () => {
       try {
@@ -27,11 +25,9 @@ export const MainHeader = ({ navigation, route }) => {
     loadUser();
   }, []);
 
-  // 로그아웃 처리
   const logout = async () => {
     try {
       await AsyncStorage.removeItem('user');
-      // 로그인 화면으로 이동 (스택 전체 교체)
       navigation.replace('Login');
     } catch (e) {
       console.error("Logout failed:", e);
@@ -40,7 +36,6 @@ export const MainHeader = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      {/* ───────────── 상단 사용자 정보 / 로그아웃 ───────────── */}
       <View style={styles.header}>
         <View>
           <Text style={styles.companyName}>

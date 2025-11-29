@@ -2,6 +2,7 @@ const API_BASE_URL = 'https://fairworks.vercel.app';
 
 export const API = {
   login: `${API_BASE_URL}/api/login`,
+  userStatus: `${API_BASE_URL}/api/userStatus`,
   verifyUser: `${API_BASE_URL}/api/verifyUser`,
   fetchSheet: `${API_BASE_URL}/api/fetchSheet`,
   uploadPhoto: `${API_BASE_URL}/api/uploadPhoto`,

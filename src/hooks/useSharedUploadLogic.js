@@ -212,23 +212,27 @@ export const useSharedUploadLogic = (navigation, route, mode = 'single') => {
     return { entries, tableConfig };
   }, [selectedForm, formData]);
 
-  return {
-    // 상태
-    user, forms, selectedForm, formData, loading, validationErrors, datePickerField, 
-    // 이미지 관련 상태 (UploadEachScreen에서 필요)
-    images: [], setImages: () => {}, 
-    selectedImageIndex: null, setSelectedImageIndex: () => {},
-    uploadedThumbnails: [], setUploadedThumbnails: () => {},
-    rotation: 0, setRotation: () => {},
-    uploading: false, setUploading: () => {},
-    uploadProgress: 0, setUploadProgress: () => {},
-    saving: false, setSaving: () => {},
-    canvasRef: null,
-    
-    // 유틸리티/계산 값
-    CANVAS_WIDTH, CANVAS_HEIGHT, entries, tableConfig,
-    
-    // 핸들러
-    handleSelectForm, validateForm, updateField, onDateChange, setDatePickerField,
-  };
+return {
+  // 상태
+  user, forms, selectedForm, formData, loading, validationErrors, datePickerField, 
+  
+  // 🟢 [추가] setFormData
+  setFormData, // 💡 전역 formData 상태 설정 함수 추가
+  
+  // 이미지 관련 상태 (UploadEachScreen에서 필요) - 더미 값
+  images: [], setImages: () => {}, 
+  selectedImageIndex: null, setSelectedImageIndex: () => {},
+  uploadedThumbnails: [], setUploadedThumbnails: () => {},
+  rotation: 0, setRotation: () => {},
+  uploading: false, setUploading: () => {},
+  uploadProgress: 0, setUploadProgress: () => {},
+  saving: false, setSaving: () => {},
+  canvasRef: null,
+  
+  // 유틸리티/계산 값
+  CANVAS_WIDTH, CANVAS_HEIGHT, entries, tableConfig,
+  
+  // 핸들러
+  handleSelectForm, validateForm, updateField, onDateChange, setDatePickerField,
+};
 };
